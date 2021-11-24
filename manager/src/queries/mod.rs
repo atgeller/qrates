@@ -17,6 +17,7 @@ mod unsafe_reasons;
 mod unsafe_spans;
 mod unsafe_types;
 mod utils;
+mod slice_get_unchecked;
 
 pub fn run_query(
     query_name: &str,
@@ -68,6 +69,7 @@ pub fn run_query(
         "unsafe-spans" => unsafe_spans::query(&loader, &report_path.join("unsafe-spans")),
         "build-meta" => build_meta::query(&loader, &report_path.join("build-meta")),
         "non-tree-types" => non_tree_types::query(&loader, &report_path.join("non-tree-types")),
+        "slice-get-unchecked" => slice_get_unchecked::query(&loader, &report_path.join("slice-get-unchecked")),
         "all" => {
             run_query(
                 "unsafe-reasons",
